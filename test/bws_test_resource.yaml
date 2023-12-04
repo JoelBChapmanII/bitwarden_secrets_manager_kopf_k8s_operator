@@ -1,0 +1,8 @@
+---
+apiVersion: kopf.dev/v1
+kind: BitwardenSecret
+metadata:
+  name: bws-test
+spec:
+  secretName: 'test'
+  organization: 'test'
