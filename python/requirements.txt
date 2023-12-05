@@ -1,0 +1,8 @@
+kopf
+kubernetes
+requests
+
+# For bitwarden cli
+setuptools
+setuptools_rust
+python-dateutil

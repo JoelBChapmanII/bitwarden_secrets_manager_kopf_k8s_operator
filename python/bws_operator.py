@@ -1,6 +1,10 @@
 import kopf
 import logging
 import kubernetes
+import requests
+
+#
+BITWARDEN_API_URL = "https://api.bitwarden.com/"
 
 @kopf.on.create('bitwardensecrets')
 def create_fn(body, **kwargs):
@@ -14,4 +18,3 @@ def create_fn(body, **kwargs):
     )
 
     k_api.create_namespaced_secret(body=k_sec, namespace='default')
-
