@@ -10,3 +10,4 @@ Documenting a roadmap for future features.
 - Right now this puts secrets into the namespace it is deployed to, should be able to provide the namespace as a param
 - Need some kind of validation on secret names, have to be lowercase, no underscores, etc.
 - Need to set up a better way to develop
+- Create CONTRIBUTING.md and pull_request_template.md
