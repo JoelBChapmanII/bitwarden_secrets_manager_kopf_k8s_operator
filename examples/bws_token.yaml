@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: bwsm_sa_token
-  namespace: shell-operator
+  name: bwsm-sa-token
+  namespace: Namespace
 stringData:
   .secretAccessToken: REPLACEME

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    {{- include "bitwarden_secrets_manager_operator.labels" . | nindent 4 }}
+  name: {{ include "bitwarden_secrets_manager_operator.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "bitwarden_secrets_manager_operator.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "bitwarden_secrets_manager_operator.labels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "bitwarden_secrets_manager_operator.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: BWS_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.bitwarden_secrets_manager_secret.name }}
+                  key: {{ .Values.bitwarden_secrets_manager_secret.key }}

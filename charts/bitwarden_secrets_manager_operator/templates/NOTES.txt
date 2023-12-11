@@ -1,0 +1,5 @@
+Congratulations you have installed the bitwarden secrets manager operator!
+
+There is an assumption that you have already deployed the kubernetes secret used to authenticate
+to bitwarden secrets manager. To begin using this operator check the README.md for examples on
+how to declare a bitwarden secret manager secret.
