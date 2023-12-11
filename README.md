@@ -86,6 +86,7 @@ kind delete cluster
 ```
 
 ### Commands for Easier Troubleshooting
+
 ```bash
 # Follow the bwsm pod logs
 kubectl logs -n bwsm -f $(kubectl get pods -n bwsm -o json | jq -r '.items[0].metadata.name')
